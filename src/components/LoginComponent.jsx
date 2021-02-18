@@ -9,7 +9,7 @@ const LoginComponent = (props) => {
   const history = useHistory()
 
   const login = async ()=> {
-    const res = await axios("http://localhost:3001/users/login", {
+    const res = await axios(`${process.env.REACT_APP_BE_URL}users/login`, {
       method: 'POST',
       headers: {
         "Content-Type": "application/json"
@@ -38,7 +38,7 @@ const LoginComponent = (props) => {
           onChange={e => setPassword(e.target.value)}
         ></input>
         <input type="button" onClick={login} value="Login"></input>
-        <a href="http://localhost:3001/users/googleLogin"><button>Sign in with Google!</button></a>
+        <a href={`${process.env.REACT_APP_BE_URL}users/googleLogin`}><button>Sign in with Google!</button></a>
       </header>
     </div>
   )
